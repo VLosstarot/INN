@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Валидатор INN
  */
-interface Validator
+interface InnValidatorInterface
 {
     /**
      * Валидация ИНН

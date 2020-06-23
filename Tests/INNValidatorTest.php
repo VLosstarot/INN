@@ -4,23 +4,21 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-require __DIR__ . "/../INNValidator.php";
+require_once __DIR__."/../InnValidator.php";
+require_once __DIR__."/../InnValidatorService.php";
 
 /**
  * @testdox INN Validator
- * @coversDefaultClass INNValidator
+ * @coversDefaultClass InnValidatorInterface
  */
 class INNValidatorTest extends TestCase
 {
-    /**
-     * @var INNValidator
-     */
-    private $validator;
+    private InnValidatorService $context;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->validator = new INNValidator();
+        $this->context = new InnValidatorService(new InnValidator());
     }
 
     /**
@@ -32,7 +30,7 @@ class INNValidatorTest extends TestCase
      */
     public function testValidate10($inn): void
     {
-        $this->assertTrue($this->validator->validate($inn));
+        $this->assertTrue($this->context->validate($inn));
     }
 
     /**

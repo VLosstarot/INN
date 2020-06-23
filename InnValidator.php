@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-require __DIR__ . "/Validator.php";
+require_once __DIR__."/InnValidatorInterface.php";
 
-class INNValidator implements Validator
+class InnValidator implements InnValidatorInterface
 {
     /**
      * Коэффициенты для вычисления контрольной суммы 10-значного ИНН
@@ -68,9 +68,7 @@ class INNValidator implements Validator
         $sum %= self::CONTROL_NUMBER_DIVIDER;
 
         /** 3) */
-        if ($sum > 9) {
-            $sum %= self::ADDITIONAL_CONTROL_NUMBER_DIVIDER;
-        }
+        [$sum] = $this->mod([$sum]);
 
         /** 4) */
         return $sum === $inn[9];
@@ -112,14 +110,27 @@ class INNValidator implements Validator
         $sum_2 %= self::CONTROL_NUMBER_DIVIDER;
 
         /** 5) */
-        if ($sum_2 > 9) {
-            $sum_2 %= self::ADDITIONAL_CONTROL_NUMBER_DIVIDER;
-        }
-        if ($sum_1 > 9) {
-            $sum_1 %= self::ADDITIONAL_CONTROL_NUMBER_DIVIDER;
-        }
+        [$sum_1, $sum_2] = $this->mod([$sum_1, $sum_2]);
 
         /** 6) */
         return $sum_1 === $inn[10] && $sum_2 === $inn[11];
+    }
+
+    /**
+     * Выполнение пунтка 3) валидации 10-значного ИНН для нескольких значений
+     * @param array $numbers
+     * @return array
+     */
+    private function mod(array $numbers): array
+    {
+        $result = [];
+        foreach ($numbers as $number) {
+            if ($number > 9) {
+                $result[] = $number % self::ADDITIONAL_CONTROL_NUMBER_DIVIDER;
+            } else {
+                $result[] = $number;
+            }
+        }
+        return $result;
     }
 }
