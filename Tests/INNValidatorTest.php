@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+namespace App\Tests;
+
+use App\InnValidator;
+use App\InnValidatorInterface;
+use App\InnValidatorService;
 use PHPUnit\Framework\TestCase;
 
 require_once __DIR__."/../InnValidator.php";
