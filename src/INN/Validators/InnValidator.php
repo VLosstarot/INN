@@ -2,11 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App;
-
-use App\InnValidatorInterface;
-
-require_once __DIR__."/InnValidatorInterface.php";
+namespace INN\Validators;
 
 class InnValidator implements InnValidatorInterface
 {

@@ -2,5 +2,10 @@
     "require": {
         "php": "^7.3",
         "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "INN": "src"
+        }
     }
 }

@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
-use App\InnValidator;
-use App\InnValidatorInterface;
-use App\InnValidatorService;
 use PHPUnit\Framework\TestCase;
-
-require_once __DIR__."/../InnValidator.php";
-require_once __DIR__."/../InnValidatorService.php";
+use INN\Services\InnValidatorService;
+use INN\Validators\InnValidator;
+use INN\Validators\InnValidatorInterface;
 
 /**
  * @testdox INN Validator

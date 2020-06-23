@@ -1,3 +1,9 @@
-https://docs.google.com/document/d/1c2FDR-kdNCgCSXuNCbmfSMF7NOlLNGyaY6qKMTmpweo/edit#
-1) composer install
-2) vendor/bin/phpunit
+####Инструкция по запуску программы
+
+**1**) Выполнить команду:
+
+- `composer install`
+
+**2**) Запустить тесты для проверки работоспособности сервиса валидации ИНН:
+
+- `vendor/bin/phpunit`
