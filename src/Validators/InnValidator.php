@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace INN\Validators;
+namespace App\Validators;
 
 class InnValidator implements InnValidatorInterface
 {

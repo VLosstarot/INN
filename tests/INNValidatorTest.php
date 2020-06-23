@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Tests;
 
 use PHPUnit\Framework\TestCase;
-use INN\Services\InnValidatorService;
-use INN\Validators\InnValidator;
-use INN\Validators\InnValidatorInterface;
+use App\Services\InnValidatorService;
+use App\Validators\InnValidator;
+use App\Validators\InnValidatorInterface;
 
 /**
  * @testdox INN Validator

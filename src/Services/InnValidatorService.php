@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace INN\Services;
+namespace App\Services;
 
-use INN\Validators\InnValidatorInterface;
+use App\Validators\InnValidatorInterface;
 
 class InnValidatorService
 {
